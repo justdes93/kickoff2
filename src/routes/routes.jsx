@@ -18,7 +18,11 @@ const routes = [
   },
   {
     path: '/',
-    element: <RequireAuth><Layout /></RequireAuth>,
+    element: (
+      <RequireAuth>
+        <Layout />
+      </RequireAuth>
+    ),
     children: [
       {
         path: 'profile',
@@ -100,9 +104,13 @@ const routes = [
   },
   {
     path: '/admin',
-    element: <RequireAdmin><AdminLayout /></RequireAdmin>,
+    element: (
+      <RequireAdmin>
+        <AdminLayout />
+      </RequireAdmin>
+    ),
     children: [
-      { index: true, element: <Navigate to="clubs" /> },
+      { index: true, element: <Navigate to="clubs" replace /> },
       { path: 'clubs', element: <Pages.AdminClubs /> },
       { path: 'players', element: <Pages.AdminPlayers /> },
       { path: 'users', element: <Pages.AdminUsers /> },
